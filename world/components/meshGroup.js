@@ -15,6 +15,19 @@ function createMeshGroup() {
     group.add(protoSphere)
     group.tick = (delta) => {}
     return group;
-  }
+}
 
-export { createMeshGroup }
+// onTick is optional
+function group(meshes, onTick) {
+  const group = new Group()
+  for(let i = 0; i < meshes.length; i++) {
+    group.add(meshes[i])
+  }
+  if (onTick) {
+    group.tick = onTick
+  }
+  return group
+}
+
+export { createMeshGroup, group }
+

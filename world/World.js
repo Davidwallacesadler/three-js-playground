@@ -1,9 +1,11 @@
 import { createCamera } from './components/camera'
-// import { createCube } from './components/cube'
 import { createScene } from './components/scene'
 import { createLights } from './components/lights'
-import { createMeshGroup } from './components/meshGroup'
+// import { group } from './components/meshGroup'
 import { createSkyBox } from './components/skybox'
+import { createWorldPlane } from './components/plane'
+import { createAxes } from './components/axes'
+// import { createFlatText } from './components/text'
 
 import { createRenderer } from './systems/renderer'
 import { Resizer } from './systems/Resizer'
@@ -34,18 +36,16 @@ class World {
             controls.update();
         }
 
+        // createFlatText(`foobar`, scene)
         const skybox = createSkyBox()
-        // const cube = createCube()
-        const group = createMeshGroup()
+        const worldPlane = createWorldPlane()
         const { ambientLight, mainLight } = createLights()
-        scene.add(skybox, group, mainLight, ambientLight)
-        loop.animatables.push(group)
-        // loop.animatables.push(camera)
+        const axes = createAxes()
+        scene.add(skybox, worldPlane, mainLight, ambientLight, axes)
         loop.animatables.push(controls)
         
         // eslint-disable-next-line no-unused-vars
         const resizer = new Resizer(container, camera, renderer)
-        
     }
 
     // Call to draw a single frame - if no animations are needed

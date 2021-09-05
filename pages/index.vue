@@ -14,7 +14,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .app-body {
   width: 100vw;
   height: 100vh;

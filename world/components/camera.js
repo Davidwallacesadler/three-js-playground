@@ -8,7 +8,7 @@ function createCamera() {
         10, // Near Clipping Plane
         30000 // Far Clipping Plane
     )
-    camera.position.set(0, 0, 20)
+    camera.position.set(0, 10, 20)
     camera.tick = (delta) => {
         // camera.rotation.x += * delta
         // camera.zoom.set += 1 * delta
